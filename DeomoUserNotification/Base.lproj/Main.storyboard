@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,73 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DeomoUserNotification" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeF-hv-dpT">
+                                <rect key="frame" x="20" y="100" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-1H-AX0">
+                                <rect key="frame" x="20" y="140" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQK-Dx-1f0">
+                                <rect key="frame" x="0.0" y="180" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="520358460.42830098">
+                                    <!--2017-06-28 16:01:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-8c-I77" userLabel="Check Btn">
+                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <state key="normal" title="Check"/>
+                                <connections>
+                                    <action selector="checkPendingNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Irh-nN-s3s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbB-gt-ug8">
+                                <rect key="frame" x="20" y="426" width="335" height="30"/>
+                                <state key="normal" title="Send Notification"/>
+                                <connections>
+                                    <action selector="sendNotificationBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eiw-Pv-B9J"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kbB-gt-ug8" secondAttribute="trailing" constant="20" id="0FO-3U-gdZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Plo-1H-AX0" secondAttribute="trailing" constant="20" id="0Nd-zW-H3O"/>
+                            <constraint firstItem="kbB-gt-ug8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1FC-Be-lTE"/>
+                            <constraint firstItem="OeF-hv-dpT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="5Zg-U5-4hq"/>
+                            <constraint firstItem="VQK-Dx-1f0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7vQ-gs-sXt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QPj-8c-I77" secondAttribute="bottom" constant="20" id="AEU-hK-s1t"/>
+                            <constraint firstItem="VQK-Dx-1f0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HcP-jK-ZSR"/>
+                            <constraint firstItem="kbB-gt-ug8" firstAttribute="top" secondItem="VQK-Dx-1f0" secondAttribute="bottom" constant="30" id="LEB-bT-bue"/>
+                            <constraint firstItem="VQK-Dx-1f0" firstAttribute="top" secondItem="Plo-1H-AX0" secondAttribute="bottom" constant="10" id="QBu-WO-q2L"/>
+                            <constraint firstItem="OeF-hv-dpT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gKJ-V5-Tqw"/>
+                            <constraint firstItem="Plo-1H-AX0" firstAttribute="top" secondItem="OeF-hv-dpT" secondAttribute="bottom" constant="10" id="lRM-5K-RAX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QPj-8c-I77" secondAttribute="trailing" constant="20" id="wA0-W7-xb7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OeF-hv-dpT" secondAttribute="trailing" constant="20" id="xSD-jQ-naC"/>
+                            <constraint firstItem="Plo-1H-AX0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xxp-QQ-SPD"/>
+                            <constraint firstItem="QPj-8c-I77" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zGK-Be-UuA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="notificationBodyTextField" destination="Plo-1H-AX0" id="qm8-Wi-lkP"/>
+                        <outlet property="notificationTitileTextField" destination="OeF-hv-dpT" id="wP9-F3-8fM"/>
+                        <outlet property="triggerTimePicker" destination="VQK-Dx-1f0" id="VaF-O2-z8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
